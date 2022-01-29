@@ -6,7 +6,6 @@ task("tTransfer", "Transfer token")
     .addParam("amount", "amount of tokens to approve")
     .setAction(async (taskArgs, hre) => {
         const token = await hre.ethers.getContractAt("ZepToken", taskArgs.token);
-        // const amount = await hre.ethers.utils.parseEther(taskArgs.amount)
         const transfer = await token.transfer(taskArgs.to,taskArgs.amount);
         console.log("Created with tx hash: "+ transfer.hash);
     });

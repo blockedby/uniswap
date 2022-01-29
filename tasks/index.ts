@@ -1,4 +1,4 @@
-// import "./accounts";
+
 import "./approve";
 import "./balanceOfToken";
 import "./transfer";
@@ -7,3 +7,4 @@ import "./claim";
 import "./reward";
 import "./unstake";
 import "./requestUnstake";
+import "./transfer";
