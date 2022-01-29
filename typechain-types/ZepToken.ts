@@ -21,10 +21,8 @@ export interface ZepTokenInterface extends utils.Interface {
   contractName: "ZepToken";
   functions: {
     "allowance(address,address)": FunctionFragment;
-    "allowed(address,address)": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
-    "balances(address)": FunctionFragment;
     "burn(address,uint256)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
@@ -43,15 +41,10 @@ export interface ZepTokenInterface extends utils.Interface {
     values: [string, string]
   ): string;
   encodeFunctionData(
-    functionFragment: "allowed",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
     functionFragment: "approve",
     values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-  encodeFunctionData(functionFragment: "balances", values: [string]): string;
   encodeFunctionData(
     functionFragment: "burn",
     values: [string, BigNumberish]
@@ -86,10 +79,8 @@ export interface ZepTokenInterface extends utils.Interface {
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "allowed", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "balances", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
   decodeFunctionResult(
@@ -171,12 +162,6 @@ export interface ZepToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    allowed(
-      arg0: string,
-      arg1: string,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
-
     approve(
       spender: string,
       value: BigNumberish,
@@ -184,8 +169,6 @@ export interface ZepToken extends BaseContract {
     ): Promise<ContractTransaction>;
 
     balanceOf(person: string, overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    balances(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     burn(
       account: string,
@@ -241,12 +224,6 @@ export interface ZepToken extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  allowed(
-    arg0: string,
-    arg1: string,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
-
   approve(
     spender: string,
     value: BigNumberish,
@@ -254,8 +231,6 @@ export interface ZepToken extends BaseContract {
   ): Promise<ContractTransaction>;
 
   balanceOf(person: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-  balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   burn(
     account: string,
@@ -311,12 +286,6 @@ export interface ZepToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    allowed(
-      arg0: string,
-      arg1: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
     approve(
       spender: string,
       value: BigNumberish,
@@ -324,8 +293,6 @@ export interface ZepToken extends BaseContract {
     ): Promise<boolean>;
 
     balanceOf(person: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-    balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     burn(
       account: string,
@@ -406,12 +373,6 @@ export interface ZepToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    allowed(
-      arg0: string,
-      arg1: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
     approve(
       spender: string,
       value: BigNumberish,
@@ -419,8 +380,6 @@ export interface ZepToken extends BaseContract {
     ): Promise<BigNumber>;
 
     balanceOf(person: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-    balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     burn(
       account: string,
@@ -477,12 +436,6 @@ export interface ZepToken extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    allowed(
-      arg0: string,
-      arg1: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
     approve(
       spender: string,
       value: BigNumberish,
@@ -491,11 +444,6 @@ export interface ZepToken extends BaseContract {
 
     balanceOf(
       person: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    balances(
-      arg0: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

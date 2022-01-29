@@ -8,6 +8,6 @@ task("balanceOfToken", "Approves account to transferFrom")
         const of = hre.ethers.utils.getAddress(taskArgs.of);
         // do not work without it
         const balance = await token.balanceOf(of);
-        console.log(balance.toNumber());
-
+        const name = await token.name();
+        console.log(balance.toNumber()+" of "+name);
     });

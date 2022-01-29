@@ -19,9 +19,10 @@ interface IERC20 {
 }
 
 contract ZepToken is IERC20 {
-  mapping (address => uint256) public balances;
+
+  mapping (address => uint256) private balances;
   // можно разрешить только одному контракту, ай йай
-  mapping (address => mapping (address => uint256)) public allowed;
+  mapping (address => mapping (address => uint256)) private allowed;
 
   string private _name = "KCNCtoken";
   string private _symbol = "KCNC";
@@ -32,8 +33,13 @@ contract ZepToken is IERC20 {
 // Error in plugin solidity-coverage: Error: Could not instrument: ZepToken.sol. (Please verify solc can compile this file without errors.) mismatched input '(' expecting {';', '='} (32:20)
   // error Unauthorized();
 
-  constructor(uint256 _initialBalance){
+  constructor(
+    uint256 _initialBalance, string memory tokenName,string memory tokenSymbol
+    ){
     _owner = msg.sender;
+    _name = tokenName;
+    _symbol = tokenSymbol;
+
     mint(msg.sender,_initialBalance);
   }
 
